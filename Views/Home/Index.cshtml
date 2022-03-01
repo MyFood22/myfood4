@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <base href="@ViewData["base_path"]" target="_self">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="image/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="image/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="image/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="image/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="image/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="image/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="image/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="image/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="image/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="image/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="image/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
+    <link rel="manifest" href="image/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="image/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+
+
+
+    <title>Feeling hungry</title>
+
+
+
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
+    <link rel="stylesheet" type="text/css" href="css/Style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <!--<script src="./js/JaScript.js"></script>-->
+    <script>
+
+        function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+function eraseCookie(name) {
+    //document.cookie = name + '=; Max-Age=0';
+
+    document.cookie = name+"=; Max-Age=0; path=/; domain=" + location.hostname;
+}
+
+
+        $(document).ready(function (e1) {
+
+            $.post("./service/user_register2", { username: $("#login_form").find("#userName").val(),password:$("#login_form").find("#password").val() }, function (msg1) {
+                alert("msg2=" + msg1);
+                //window.location.href="./Home/index_users";
+                
+                //return false;
+            });
+
+            /*alert("ready!");
+            debugger;
+            $.post("./service/getdata", { op_code1: "get_data1" }, function (msg1) {
+                alert("msg1=" + msg1);
+            });;
+            */
+           //eraseCookie("user_name_login");
+           alert(getCookie("user_name_login2"));
+            $("#login_btn1").click(function (e1)
+            {
+
+
+
+                alert("login");
+                $.post("./service/user_login", { username: $("#login_form").find("#userName").val(),password:$("#login_form").find("#password").val() }, function (msg1) {
+                alert("msg1=" + msg1);
+                window.location.href="./Home/index_users";
+                
+                //return false;
+            });
+
+                //alert($("#login_form").find("#userName").val());
+            });
+        });
+
+    </script>
+</head>
+
+<body translate="no">
+
+
+
+    <!--<div class="wrapper"></div>-->
+    <!--<Шапка сайта>-->
+    <header class="header">
+        <div class="container">
+            <div class="header_inner">
+
+                <div class="logo">FoodGood</div>
+                <nav>
+                    <div class="topmenu">
+                        <aside>
+
+                            <!--   <?php
+    if (isset($_COOKIE['user']) == ''):
+    ?>-->
+
+                            <a href="http://localhost/myfood/index.php">Home</a>
+                            <a href="#" class="btn" data-path="form-popup">My accoun</a>
+                            <a href="#" class="btn" data-path="form-popup">Gallery</a>
+                            <a href="#" class="btn" data-path="form-popup">Advanced Search</a>
+                            <a href="#" class="btn" data-path="me-popup" id="registration">Sign Up</a>
+                            <a href="#" class="btn" data-path="form-popup">Log In</a>
+
+                            <!--<?php else: ?>
+
+                            <a href="http://localhost/myfood/index.php" class="home">Home</a>
+                            <a href="file:///C:/Server/data/htdocs/myFood/MyAccount.html#">My accoun</a>
+                            <a href="#">Gallery</a>
+                            <a href="#">Advanced Search</a>
+                            <a href="http://localhost/myfood/master/exit.php" id="open_pop_up">LogOut , <b><?=$_COOKIE['user']?></b></a>
+    <?php endif;?>-->
+                        </aside>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+
+
+    <div class="container">
+        <div class="row text-center">
+            <h3>
+                Feeling hungry?
+            </h3>
+            <h5>Get a random meal by clicking below</h5>
+            <button class="button-primary" id="get_meal">Get Meal  🥗</button>
+
+        </div>
+        <div id="meal" class="row meal"></div>
+    </div>
+
+
+    <!-- Registration -->
+                            <div class="popup-log" id="popup-log">
+                                <div class="login-box modal--1" data-target="form-popup">
+                                    <h5>Login</h5>
+                                    <form id="login_form" action="./Service/user_login" method="POST" class="log__form">
+                                        <fieldset class="inputs">
+                                            <div class="user-box">
+                                                <input type="text" required="" name="userName" id="userName">
+                                                <label id="demo1">Username</label>
+                                            </div>
+
+                                            <div class="user-box">
+                                                <input type="password" required="" name="password" id="password">
+                                                <label id="demo4">Password</label>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset class="actions">
+										<button id="login_btn1" onclick="return false;" class="neon-btn">Log In</button>
+                                        <h6 id="h6">OR</h6><a href="#"  id="registration" class="btn" data-path="me-popup">Registration</a>
+                                        </fieldset>
+                                    </form>
+                                    <div class="popup_close1" id="popup_close1">&#10006</div>
+                                </div>
+
+                                <!-- Login -->
+
+                                <div class="login-box modal--2" data-target="me-popup">
+                                    <h5>Registration</h5>
+                                    <form action="./Service/user_register" method="POST" class="log__form">
+                                        <fieldset class="inputs">
+
+                                            <div class="user-box">
+
+                                                <input type="text" required="" name="userName" id="userName">
+                                                <label id="demo1">Username</label>
+                                            </div>
+                                            <div class="user-box">
+                                                <input type="text" required="" name="emailBox" id="emailBox">
+                                                <label id="demo">Email</label>
+                                                
+                                            </div>
+                                            <div class="user-box">
+
+                                                <input type="password" required="" name="password" id="password">
+                                                <label id="demo4">Password</label>
+                                            </div>
+                                           
+                                        </fieldset>
+                                        <fieldset class="actions">
+										
+                                         
+											<button type="submit" class="neon-btn" onclick="batReg">Registration</button>
+                                             <h6 id="h61">OR</h6><a href="#" id="Reg__form" class="btn" data-path="form-popup">Log In</a>
+                                        </fieldset>
+                                    </form>
+                                    <div class="popup_close " id="popup_close">&#10006</div>
+
+                                </div>
+                            </div>
+
+
+
+
+                            <!-- SOCIAL PANEL HTML -->
+                            <div class="social-panel-container">
+                                <div class="social-panel">
+                                    <p>
+                                        Created with <i class="fa fa-heart"></i> by
+                                        <a target="_blank" href="https://florin-pop.com">Florin Pop</a>
+                                    </p>
+                                    <button class="close-btn"><i class="fas fa-times"></i></button>
+                                    <h4>Get in touch on</h4>
+                                    <ul>
+                                        <li>
+                                            <a href="https://twitter.com" target="_blank">
+                                                <i class="fab fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://instagram.com" target="_blank">
+                                                <i class="fab fa-instagram"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://facebook.com" target="_blank">
+                                                <i class="fab fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://linkedin.com" target="_blank">
+                                                <i class="fab fa-linkedin"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <button class="floating-btn">
+                                Get in Touch
+                            </button>
+                            <!-- история поиска -->
+                            <div class="col-12 recipes__section recipes__section--bottom order-3">
+                                <div class="recipes__history">
+                                    <div class="recipes__title">История поиска</div>
+                                    <div id="recipes__history-row" class="row recipes__history-row">
+
+                                    </div>
+                                    <div class="show-more-container" style="display:none;"><a href="javascript:void(0);" title="Показать еще">Показать еще</a></div>
+                                </div>
+                            </div>
+
+                            <!-- end история поиска -->
+
+                            <script src="js/JaScript.js"></script>
+</body>
+
+</html>
+

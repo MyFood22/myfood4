@@ -1,0 +1,22 @@
+{
+  "results_arr": [
+    {
+      "name": "milk",
+      "img": "./imgs/milk.jpg"
+    },
+    {
+      "name": "milki",
+      "img": "./imgs/milki.jpg"
+    },
+    {
+      "name": "egg",
+      "img": "./imgs/egg.jpg"
+    },
+
+    {
+      "name": "potato",
+      "img": "./imgs/potato.jpg"
+    }
+
+  ]
+}

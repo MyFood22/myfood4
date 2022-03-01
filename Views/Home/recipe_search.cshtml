@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<title> Feeling hungry </title>
+        <base href="@ViewData["base_path"]" target="_self">
+		<!--<link rel="shortcut icon" type="imnege/x-icon" href="avatar.jpg">-->
+		<link rel="stylesheet" type="text/css" href="./css/col.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<meta charset="utf-8">
+  </head>
+<body>
+
+
+<!--<Шапка сайта>-->
+<header class="header">
+    <div class="container1">
+	    <div class="header_inner">
+			
+		<div class="logo">FoodGood</div>
+			<nav>
+			<div class="topmenu">
+			  <aside>
+				<a href="http://localhost/myfood/index.php">Home</a>
+				<a href="file:///C:/Server/data/htdocs/myFood/MyAccount.html#" >My account</a>
+				<a href="#">Gallery</a>
+				<a href="file:///C:/Server/data/htdocs/myFood/login.html?" class = "advanced">Advanced Search</a>
+				<a href="http://localhost/myfood/master/exit.php" id="open_pop_up">LogOut , <!--<b><?=$_COOKIE['user']?></b>--></a>
+				
+			  </aside>
+			</div>
+			</nav>
+		</div>
+	</div>
+	
+</header>
+<div class="dws-button">
+			<label class="tab active" title="Вкладка 1">Search by name</label>
+			<label class="tab" title="Вкладка 2">Meal Finder</label>
+			<label class="tab" title="Вкладка 3">Good Day</label>
+			<!---->
+		  </div>
+<div class="dws-form">
+   <div class="container active" id = "tab-form">
+         <h1>Enter the name of the dish:</h1>
+           <div class="flex">
+            <form class="flex" id="submit">
+                <input type="text" id="search" placeholder="Search for meals or keywords" />
+                <button class="search-btn" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+            
+        </div>
+         <div id="keywords">
+		 <pre>fish,chicken, Pizza, patata.
+         fish,chicken, Pizza, patata.fish,chicken, Pizza, patata.
+		 fish,chicken, Pizza, patata.
+         fish,chicken, Pizza, patata.fish,chicken, Pizza, patata.
+		 fish,chicken, Pizza, patata.
+         fish,chicken, Pizza, patata.fish,chicken, Pizza, patata.
+		 fish,chicken, Pizza, patata.
+         fish,chicken, Pizza, patata.fish,chicken, Pizza, patata.
+</pre>		 
+		 </div>
+        <div id="result-heading"></div>
+        <div id="meals" class="meals"></div>
+        <div id="single-meal"></div>
+    </div>
+	
+	<div class="container" id = "tab-form">
+         <h1>Meal Finder</h1>
+           <div class="flex">
+            <form class="flex" id="submit">
+                <input type="text" id="search" placeholder="Search for meals or keywords" />
+                <button class="search-btn" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+            
+        </div>
+
+        <div id="result-heading"></div>
+        <div id="meals" class="meals"></div>
+        <div id="single-meal"></div>
+    </div>
+	
+	<div class="container" id = "tab-form">
+         <h1>Good Day</h1>
+           <div class="flex">
+            <form class="flex" id="submit">
+                <input type="text" id="search" placeholder="Search for meals or keywords" />
+                <button class="search-btn" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+            
+        </div>
+
+        <div id="result-heading"></div>
+        <div id="meals" class="meals"></div>
+        <div id="single-meal"></div>
+    </div>
+	
+</div>
+
+    
+	<script src="./js/Js.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    
+</body>
+
+
+</html>
+
+
