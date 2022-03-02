@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="@ViewData["base_path"]" target="_self">
+<link rel="apple-touch-icon" sizes="57x57" href="image/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="image/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="image/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="image/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="image/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="image/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="image/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="image/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="image/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="image/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="image/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+
+
+    <title>Feeling hungry</title>
+	
+  
+  
+  
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
+ 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+	
+    <link rel="stylesheet" href="vendor/spectre.min.css">
+    <link rel="stylesheet" href="vendor/spectre-exp.min.css">
+    <link rel="stylesheet" href="vendor/spectre-icons.min.css">
+	
+   <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+   <script src="./js/Js.js"></script>
+   <script src="./js/col.js"></script>
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        body {
+	display: relative;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 30px 0;
+	padding-top: 100px;
+	min-height: 100vh;
+	background: linear-gradient(rgba(0,0,0,0.10),rgba(0,0,0,0.15)), url(img/body.jpg);
+	color: #fff;
+	font-family: sans-serif;
+	background-size: cover;
+	background-attachment: fixed;
+}
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container">
+	    <div class="header_inner">
+			
+		<div class="logo">FoodGood</div>
+			<nav>
+			<div class="topmenu">
+			  <aside>
+				<a href="http://localhost/myfood/index.php">Home</a>
+				<a href="./home/recipe_search" class = "account">My account</a>
+				<a href="#">Gallery</a>
+				<a href="./home/user_Account">Advanced Search</a>
+				<a href="http://localhost/myfood/master/exit.php" id="open_pop_up">LogOut , <b><?=$_COOKIE['user']?></b></a>
+				
+			  </aside>
+			</div>
+			</nav>
+		</div>
+	</div>
+	
+</header>
+
+		  <div class="dws-button">
+			<label class="tab active" title="Вкладка 1">MyFavoriteRecipes</label>
+			<label class="tab" title="Вкладка 2">MyHistory</label>
+			<!--<h1 >This is my account</h1>-->
+		  </div>
+		
+		  <div class="dws-form">
+           
+			 <form class="tab-form active">
+   
+				<pre>privet jeto ja xaxaxa  xaxaxa1111111111111111111111111111111111111111111111111111111111111111111111111
+				ghjfkjgkjhjgjgjhgljkglkjhjk
+				kjlgkhjkjgkgkgkhgjhgg
+				kjfjjhfhfhjfkhjkjgjkh1111111111111111111111111111
+				kjhfjhfjkgkhgkjgkjgkhjg
+				body {
+	
+	
+}
+.wrapper {
+  position: fixed;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ display: flex;
+ height: 100vh;
+ justify-content: center;
+ align-items: center;
+}*/
+
+main{
+	
+	display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+	
+	
+	
+}
+
+.dws-form {
+  background: rgba(255, 255, 255, 0.2); 
+  outline: 2px solid red;
+	/*background-color: #fff;*/
+	padding-top: 1px;
+	margin:-57px -650px 1500px;
+	width: 1330px;
+	color: #000000;
+ position: sticky;
+  top: 0;
+  min-height: 2em;
+  background: lightpink;
+ padding: 10px; 
+}
+.tab-form{
+	background-color: #fff;
+	display: none;
+}
+.tab-form.active{
+	display: block;
+}
+	
+label.tab {
+	color: #000000;
+	font-weight: 600px;
+	padding: 15px;
+	display: inline-block;
+	cursor: pointer;
+	
+}
+
+label.tab.active {
+	background-color: #fff;
+	color: $0048BA;
+}
+
+
+header{
+	width: 100%;
+	background-color: #111133;
+	background: rgba(17, 17, 51, 1); /* Цвет фона */
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;    
+} 
+
+
+
+h1{
+	    background-color: #111133;
+		background: rgba(17, 17, 51, 0.0);
+        color: #fff;
+        border-radius: 1em;
+        padding: 1em;
+        position: fixed;
+        top: 12%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+}
+</pre>
+  
+			</form>
+
+			<form class="tab-form">
+    
+				<pre>Авторизация
+				nbmnvmnvmnvmvmv
+				mnbvmnvmnvmnvmnvm
+				 jgmnvmnvmvmnbvmnv
+				Регистрация</pre>
+				<label>Ознакомлен(-а) и принимаю <a  href="#">условия регистрации</a></label>
+			</form>		
+		</div>
+				
+<div class="show_content" id="content1">
+   </div>
+   <!-- jQuery -->
+<script src="jquery-3.3.1.min.js"></script>
+   <!-- Bootstrap -->
+<script src="bootstrap.min.js"></script>
+
+   
+</body>
+</html>

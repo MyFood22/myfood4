@@ -19,6 +19,12 @@ namespace myfood4.Controllers
             return View();
         }
 
+        public IActionResult user_Account()
+        {
+            View().ViewData["base_path"] = "https://localhost:7090/";
+            return View();
+        }
+
         public IActionResult index_users()
         {
             View().ViewData["base_path"] = "https://localhost:7090/";
