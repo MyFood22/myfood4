@@ -1,0 +1,108 @@
+
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+*{
+	box-sizing: border-box;
+}
+body {
+	display: relative;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 30px 0;
+	padding-top: 100px;
+	min-height: 100vh;
+	background: linear-gradient(rgba(0,0,0,0.10),rgba(0,0,0,0.15)), url(img/body.jpg);
+	color: #fff;
+	font-family: sans-serif;
+	background-size: cover;
+	background-attachment: fixed;
+}
+div.topmenu a.account{
+
+	color: #fff;
+}
+
+
+
+div.logo {text-align: left  ; 
+          padding: 0px;
+		  font-size: 25px;
+font-weight: bold;}
+div.logo {color: #fff; text-transform: uppercase;text-shadow: 1px 1px #0b4455;}
+div.topmenu a:hover{color: #fff;}
+div.topmenu {float: right ; height: 28px; line-height: 1px;}
+div.topmenu a{margin: 10px  10px  10px  20px; color: #1683a3;}
+
+
+.dws-form {
+	border: 2px solid green;
+    background: rgba(255, 255, 255, 0.2); 
+    min-height: 200px; 
+    width: 100%;
+    top: 133px;
+    left: 0; 
+	position: absolute;
+    color: #000000;
+
+}
+.tab-form{
+	border: 2px solid blue;
+	background: rgba(17, 17, 51, 0.2);
+	
+	display: none;
+}
+.tab-form.active{
+	display: block;
+}
+	
+label.tab {
+	
+	color: #000;
+	font-weight: 600px;
+	padding: 22px;
+	display: inline-block;
+	border-radius: 3px 3px 0 0;
+    margin-bottom: 0px;
+	cursor: pointer;
+	font-size: 17px;
+	text-align: left; 
+	display: inline-block;
+}
+
+label.tab.active {
+	background-color: #676767;
+	color: #51AEDB;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+
+label.tab:hover{
+	color: #9B20FF;
+	text-decoration: underline; 
+}
+
+header{
+	width: 100%;
+	background-color: #111133;
+	background: rgba(17, 17, 51, 0.5); /* Цвет фона */
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 2;    
+} 
+
+div.dws-button{
+	background-color: #E7EAED;
+		background: rgba(231, 234, 237, 0.8);
+        position: fixed;
+		width: 100%;
+		top: 63px;
+		left:0;
+		z-index: 3;
+		
+}
+
+
