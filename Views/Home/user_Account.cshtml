@@ -38,7 +38,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/style1.css">
+    <link rel="stylesheet" href="./css/style1.css">
 	
     <link rel="stylesheet" href="vendor/spectre.min.css">
     <link rel="stylesheet" href="vendor/spectre-exp.min.css">
@@ -75,11 +75,11 @@
 			<nav>
 			<div class="topmenu">
 			  <aside>
-				<a href="http://localhost/myfood/index.php">Home</a>
+				<a href="https://localhost:7090/Home/Index_users">Home</a>
 				<a href="./home/user_Account" class = "account">My account</a>
 				<a href="#">Gallery</a>
 				<a href="./home/recipe_search">Advanced Search</a>
-				<a href="http://localhost/myfood/master/exit.php" id="open_pop_up">LogOut , <b><?=$_COOKIE['user']?></b></a>
+				<a href="https://localhost:7090/Home/Index" id="open_pop_up">LogOut, <b>@ViewData["user_name_login1"]</b></a>
 				
 			  </aside>
 			</div>
