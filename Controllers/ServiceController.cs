@@ -60,6 +60,7 @@ namespace myfood4.Controllers
 
             CDbconnection conn1 = new CDbconnection();
             conn1.open_connection();
+           
             Dictionary<string, object> prms1 = new Dictionary<string, object>();
             prms1["@username1"] = userName1;
             prms1["@password1"] = password1;
@@ -133,7 +134,73 @@ namespace myfood4.Controllers
             this.View().ViewData["data1"] = "1212121";
             return View();
         }
-        /*  private void batReg(object sender, EventArgs e)
+
+
+        public IActionResult search_results1()
+        {
+            CDbconnection conn1 = new CDbconnection();
+            conn1.open_connection();
+            string autocomp_val=Request.Form["autocomp_val"].ToString();
+            Dictionary<string, object> prms1 = new Dictionary<string, object>();
+            prms1["@autocomp_val"] = autocomp_val;
+
+            string qry = "select * from all_recipes where title like '%@autocomp_val%'";
+
+            System.Data.DataSet ds1 = new System.Data.DataSet();
+
+            conn1.load_table_by_qry(qry, prms1, ds1, "recipes");
+
+            conn1.close_connection();
+
+            return View();
+        }
+
+
+        public IActionResult user_register()
+        {
+            string userName1 = Request.Form["userName"].ToString();
+            string emailBox1 = Request.Form["emailBox"].ToString();
+            string password1 = Request.Form["password"].ToString();
+
+            
+
+            CDbconnection conn1 = new CDbconnection();
+            conn1.open_connection();
+
+            //conn1.begin_transaction("register_trans1");
+            object last_err = "";
+            //conn1.execute_qry("lock TABLE userw WRITE", null, out last_err, "register_trans1");
+
+
+            Dictionary<string, object> prms1 = new Dictionary<string, object>();
+            prms1["@username1"] = userName1;
+            prms1["@emailBox1"] = emailBox1;
+            prms1["@password1"] = password1;
+
+
+            //conn1.load_table_by_qry("INSERT INTO users(username,email,password) VALUES (@username1, @emailBox1, @password1)", prms1, out last_err);
+
+
+            conn1.execute_qry("INSERT INTO users(username,email,password) VALUES (@username1, @emailBox1, @password1)", prms1,out last_err);
+
+
+            //conn1.execute_qry("unlock TABLES", null, out last_err, "register_trans1");
+            conn1.close_connection();
+            /*MySqlCommand command = new MySqlCommand("INSERT INTO `users` ( `login`,`email`,`password`) VALUES (@login, @email, @password)");
+            command.Parameters.Add("@login", MySqlDbType.VarChar).Value = userName.Text;
+            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = emailBox.Text;
+            command.Parameters.Add("@password", MySqlDbType.VarChar).Value = password.Text;*/
+
+
+            //"Duplicate entry 'popka' for key 'username_UNIQUE'"
+            if (last_err.ToString().Contains("Duplicate entry") && last_err.ToString().Contains("for key 'username_UNIQUE'"))
+            {
+                return Content("{error:'username_exist')");
+            }
+                return Content("register_success");
+            
+        }
+        /*  private void butReg(object sender, EventArgs e)
           {
               ServiceController db = new ServiceController();
               MySqlCommand command = new MySqlCommand("INSERT INTO `users` ( `login`,`email`,`password`) VALUES (@login, @email, @password)", db.getConnection());
@@ -144,4 +211,6 @@ namespace myfood4.Controllers
 
 
     }
+
+
 }

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+ <partial name="~/Views/Home/basepath_tag1.cshtml" />
+<link rel="apple-touch-icon" sizes="57x57" href="image/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="image/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="image/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="image/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="image/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="image/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="image/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="image/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="image/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="image/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="image/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+
+
+    <title>Feeling hungry</title>
+	
+  
+  
+  
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
+ 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style1.css">
+	<link rel="stylesheet" href="./css/lightbox.css">
+	
+    <link rel="stylesheet" href="vendor/spectre.min.css">
+    <link rel="stylesheet" href="vendor/spectre-exp.min.css">
+    <link rel="stylesheet" href="vendor/spectre-icons.min.css">
+	
+   <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+   <script src="./js/Js.js"></script>
+   <script src="./js/col.js"></script>
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        body {
+	display: relative;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 30px 0;
+	padding-top: 100px;
+	min-height: 100vh;
+	background: linear-gradient(rgba(0,0,0,0.10),rgba(0,0,0,0.15)), url(img/body.jpg);
+	color: #fff;
+	font-family: sans-serif;
+	background-size: cover;
+	background-attachment: fixed;
+}
+    </style>
+</head>
+<body>
+	<!--<Шапка сайта>-->
+	
+	  @if (ViewData["user_name_login1"]==null)
+	  {
+		<partial name="~/Views/Home/header_view1.cshtml" />
+
+	}
+	else
+	{
+				<partial name="~/Views/Home/header_view2.cshtml" />
+
+	}
+
+
+
+<div class="wrapper">
+        
+			<h1>Enter the name of the dish:</h1>
+           <div class="flex">
+            <form class="flex" id="submit">
+                <input type="text" id="search" placeholder="Search for meals or keywords" /> <br>
+				<input type="text" id="search" placeholder="Search for meals or keywords" />
+				<input type="text" id="search" placeholder="Search for meals or keywords" />
+                <button class="search-btn" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+				</form>
+				 </div>
+				
+  <div class="gallery">
+  
+      <div class="item">
+	      <div>
+		  <a data-lightbox="lightbox" href="img/1/big/01.jpg">
+		       <img class="front" src="img/1/small/01.jpg" alt="">
+			   </a>
+		  </div>
+
+      </div>
+	  <div class="item">
+	      <div>
+		  <a data-lightbox="lightbox" href="img/1/big/02.jpg">
+		       <img class="front" src="img/1/small/02.jpg" alt="">
+			   </a>
+		  </div>
+
+      </div>
+	  <div class="item">
+	      <div>
+		  <a data-lightbox="lightbox" href="img/1/big/03.jpg">
+		       <img class="front" src="img/1/small/03.jpg" alt="">
+			   </a>
+		  </div>
+
+      </div>
+	  <div class="item">
+	      <div>
+		  <a data-lightbox="lightbox" href="img/1/big/04.jpg">
+		       <img class="front" src="img/1/small/04.jpg" alt="">
+			   </a>
+		  </div>
+
+      </div>
+	  <div class="item">
+	      <div>
+		  <a data-lightbox="lightbox" href="img/1/big/05.jpg">
+		       <img class="front" src="img/1/small/05.jpg" alt="">
+			   </a>
+		  </div>
+
+      </div>
+	  <div class="item">
+	      <div>
+		  <a data-lightbox="lightbox" href="img/1/big/06.jpg">
+		       <img class="front" src="img/1/small/06.jpg" alt="">
+			   </a>
+		  </div>
+
+      </div>
+
+	   <div class="item">
+	      <div>
+		  <a data-lightbox="lightbox" href="img/1/big/07.jpg">
+		       <img class="front" src="img/1/small/07.jpg" alt="">
+			   </a>
+		  </div>
+
+      </div>
+	  <div class="item">
+	      <div>
+		  <a data-lightbox="lightbox" href="img/1/big/08.jpg">
+		       <img class="front" src="img/1/small/08.jpg" alt="">
+			   </a>
+		  </div>
+
+      </div>
+	  <div class="item">
+	      <div>
+		  <a data-lightbox="lightbox" href="img/1/big/09.jpg">
+		       <img class="front" src="img/1/small/09.jpg" alt="">
+			   </a>
+		  </div>
+
+      </div>
+	  <div class="item">
+	      <div>
+		  <a data-lightbox="lightbox" href="img/1/big/10.jpg">
+		       <img class="front" src="img/1/small/10.jpg" alt="">
+			   </a>
+		  </div>
+
+      </div>
+	  <div class="item">
+	      <div>
+		  <a data-lightbox="lightbox" href="img/1/big/11.jpg">
+		       <img class="front" src="img/1/small/11.jpg" alt="">
+			   </a>
+		  </div>
+
+      </div>
+	  <div class="item">
+	      <div>
+		  <a data-lightbox="lightbox" href="img/1/big/12.jpg">
+		       <img class="front" src="img/1/small/12.jpg" alt="">
+			   </a>
+		  </div>
+
+      </div>
+
+	   <div class="item">
+	      <div>
+		  <a data-lightbox="lightbox" href="img/1/big/13.jpg">
+		       <img class="front" src="img/1/small/13.jpg" alt="">
+			   </a>
+		  </div>
+
+      </div>
+	  <div class="item">
+	      <div>
+		  <a data-lightbox="lightbox" href="img/1/big/14.jpg">
+		       <img class="front" src="img/1/small/14.jpg" alt="">
+			   </a>
+		  </div>
+
+      </div>
+	  <div class="item">
+	      <div>
+		  <a data-lightbox="lightbox" href="img/1/big/15.jpg">
+		       <img class="front" src="img/1/small/15.jpg" alt="">
+			   </a>
+		  </div>
+
+      </div>
+	 
+	 
+	  
+    
+  </div>
+ </div>
+
+       
+ 
+  
+<div class="show_content" id="content1">
+   </div>
+   <!-- jQuery -->
+<script src="jquery-3.3.1.min.js"></script>
+   <!-- Bootstrap -->
+<script src="bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="./js/lightbox-2.6.min.js"></script>
+
+   
+</body>
+</html>

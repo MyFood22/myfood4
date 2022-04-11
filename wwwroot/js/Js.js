@@ -8,9 +8,62 @@ $(document).ready(function () {
     // Добавляем классы active
     $(this).addClass("active");
  $(".tab-form").eq($(this).index()).addClass("active");
- $(".container").eq($(this).index()).addClass("active");
+ $(".container1").eq($(this).index()).addClass("active");
+    });
+
+
+
+    $("#open_pop_up").click(function (e1) {
+        alert("logout");
+        //eraseCookie("user_name_login");
+        $.post("./service/user_logout", {}, function (msg1) {
+            alert("msg1=" + msg1);
+
+
+        });
+        alert("basepath1="+$("#basepath1").attr("href"));
+        window.location.href = $("#basepath1").attr("href");
+        //alert($("#login_form").find("#userName").val());
+    });
+
+
+
+    alert(getCookie("user_name_login2"));
+
+    $("#Reg_btn1").click(function (e1) {
+        $.post("./service/user_register", { username: $("#Register__form").find("#userName").val(), emailBox: $("#Register__form").find("#emailBox").val(), password: $("#Register__form").find("#password").val() }, function (msg1) {
+            alert("msg2=" + msg1);
+            //window.location.href="./Home/index_users";
+            window.location.href = $("#basepath1").attr("href");
+            //return false;
+        });
+    });
+
+    $("#login_btn1").click(function (e1) {
+
+
+
+        alert("login");
+        $.post("./service/user_login", { username: $("#login_form").find("#userName").val(), password: $("#login_form").find("#password").val() }, function (msg1) {
+            alert("msg1=" + msg1);
+            window.location.href="./Home/index";
+
+            //return false;
+        });
+
+        //alert($("#login_form").find("#userName").val());
+    });
+
+
 });
-});
+
+
+function eraseCookie(name) {
+    //document.cookie = name + '=; Max-Age=0';
+
+    document.cookie = name + "=; Max-Age=0; path=/; domain=" + location.hostname;
+}
+
 
 
 const search = document.getElementById('search');

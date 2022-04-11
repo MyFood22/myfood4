@@ -12,7 +12,7 @@ body {
 	padding: 30px 0;
 	padding-top: 100px;
 	min-height: 100vh;
-	background: linear-gradient(rgba(0,0,0,0.10),rgba(0,0,0,0.15)), url(img/body.jpg);
+	background: linear-gradient(rgba(0,0,0,0.10),rgba(0,0,0,0.15)), url(./img/body.jpg);
 	color: #fff;
 	font-family: sans-serif;
 	background-size: cover;
@@ -30,7 +30,10 @@ div.logo {text-align: left  ;
 		  font-size: 25px;
 font-weight: bold;}
 div.logo {color: #fff; text-transform: uppercase;text-shadow: 1px 1px #0b4455;}
-div.topmenu a:hover{color: #fff;}
+div.topmenu a:hover {
+	color: #fff;
+	cursor: pointer;
+}
 div.topmenu {float: right ; height: 28px; line-height: 1px;}
 div.topmenu a{margin: 10px  10px  10px  20px; color: #1683a3;}
 
@@ -105,4 +108,74 @@ div.dws-button{
 		
 }
 
+h1 {
+	color: blue;
+}
+
+.wrapper {
+	width: 1335px;
+	margin: 20px auto;
+	background: rgba(240, 240, 240, 0.2);
+	padding: 20px 20px 20px 20px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, .0);
+	overflow: hidden;
+}
+
+.item {
+	background: #fff;
+	width: 170px;
+	height: 150px;
+	float: left;
+	//text-align: center;
+	box-shadow: 0 0 5px rgba(0, 0, 0, .4);
+	margin: 0 90px 30px 0;
+	padding: 20px 10px 20px 10px;
+}
+
+	.item.div {
+		position: relative;
+		top: 50%;
+		-ms-transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+		transform: translateY(-30%);
+		cursor: pointer;
+	}
+
+.front {
+	transition: all .5s;
+	position: absolute;
+	/*-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;*/
+}
+
+	.front:hover {
+		box-shadow: 0 0 10px #000;
+	}
+
+.back {
+	width: 130px;
+	height: 80px;
+	display: inline-block;
+	-webkit-transform: rotateX(180deg);
+	transform: rotateX(180deg);
+	/*-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;*/
+	background: #ccc;
+	color: #000;
+	transition: all .5s;
+	padding: 10px;
+	text-align: left;
+	opacity: 0;
+}
+
+.item > div:hover .front {
+	-webkit-transform: rotateX(180deg);
+	transform: rotateX(180deg);
+}
+
+.item > div:hover .back {
+	-webkit-transform: rotateX(0deg);
+	transform: rotateX(0deg);
+	opacity: 1;
+}
 

@@ -1,12 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
-
 * {
-  
   box-sizing: border-box;
 }
-
-
 
 body {
 	display: relative;
@@ -65,7 +61,7 @@ header{
   /*display: none;*/
 }
 
-.container {
+.container1 {
   border: 1px solid yellow;
   margin: auto;
   max-width: 800px;
@@ -105,7 +101,10 @@ div.logo {text-align: left  ;
 
 font-weight: bold;}
 div.logo {color: #fff; text-transform: uppercase;text-shadow: 1px 1px #0b4455;}
-div.topmenu a:hover{color: #fff;}
+div.topmenu a:hover {
+	color: #fff;
+	cursor: pointer;
+}
 div.topmenu {float: right ; height: 28px; line-height: 1px; margin-right: 10%;}
 div.topmenu a{margin: 10px  10px  10px  20px; color: #1683a3;}
 

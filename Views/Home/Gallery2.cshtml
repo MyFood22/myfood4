@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 
- <partial name="~/Views/Home/basepath_tag1.cshtml" />
+<base href="@ViewData["base_path"]" target="_self">
 <link rel="apple-touch-icon" sizes="57x57" href="image/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="image/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="image/apple-icon-72x72.png">
@@ -39,6 +39,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style1.css">
+	<link rel="stylesheet" href="./css/style2.css">
 	
     <link rel="stylesheet" href="vendor/spectre.min.css">
     <link rel="stylesheet" href="vendor/spectre-exp.min.css">
@@ -67,129 +68,12 @@
 </head>
 <body>
 
-	    <partial name="~/Views/Home/header_view2.cshtml" />
+	    <!--<Шапка сайта>-->
 
-		  <div class="dws-button">
-			<label class="tab active" title="Вкладка 1">MyFavoriteRecipes</label>
-			<label class="tab" title="Вкладка 2">MyHistory</label>
-			<label class="tab" title="Вкладка 3">Add recipe</label>
-			<!--<h1 >This is my account</h1>-->
-		  </div>
-		
-		  <div class="dws-form">
-           
-			 <form class="tab-form active">
-   
-				<pre>privet jeto ja xaxaxa  xaxaxa1111111111111111111111111111111111111111111111111111111111111111111111111
-				ghjfkjgkjhjgjgjhgljkglkjhjk
-				kjlgkhjkjgkgkgkhgjhgg
-				kjfjjhfhfhjfkhjkjgjkh1111111111111111111111111111
-				kjhfjhfjkgkhgkjgkjgkhjg
-				body {
-	
-	
-}
-.wrapper {
-  position: fixed;
- top: 50%;
- left: 50%;
- transform: translate(-50%, -50%);
- display: flex;
- height: 100vh;
- justify-content: center;
- align-items: center;
-}*/
+    <partial name="~/Views/Home/header_view2.cshtml" />
 
-main{
-	
-	display: flex;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-	
-	
-	
-}
-
-.dws-form {
-  background: rgba(255, 255, 255, 0.2); 
-  outline: 2px solid red;
-	/*background-color: #fff;*/
-	padding-top: 1px;
-	margin:-57px -650px 1500px;
-	width: 1330px;
-	color: #000000;
- position: sticky;
-  top: 0;
-  min-height: 2em;
-  background: lightpink;
- padding: 10px; 
-}
-.tab-form{
-	background-color: #fff;
-	display: none;
-}
-.tab-form.active{
-	display: block;
-}
-	
-label.tab {
-	color: #000000;
-	font-weight: 600px;
-	padding: 15px;
-	display: inline-block;
-	cursor: pointer;
-	
-}
-
-label.tab.active {
-	background-color: #fff;
-	color: $0048BA;
-}
-
-
-header{
-	width: 100%;
-	background-color: #111133;
-	background: rgba(17, 17, 51, 1); /* Цвет фона */
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 1000;    
-} 
-
-
-
-h1{
-	    background-color: #111133;
-		background: rgba(17, 17, 51, 0.0);
-        color: #fff;
-        border-radius: 1em;
-        padding: 1em;
-        position: fixed;
-        top: 12%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%)
-}
-</pre>
-  
-			</form>
-
-			<form class="tab-form">
-    
-				<pre>Авторизация
-				nbmnvmnvmnvmvmv
-				mnbvmnvmnvmnvmnvm
-				 jgmnvmnvmvmnbvmnv
-				Регистрация</pre>
-				<label>Ознакомлен(-а) и принимаю <a  href="#">условия регистрации</a></label>
-			</form>	
-			
-			<form class="tab-form">
-    
-				<h1>Enter the name of the dish:</h1>
+<div class="wrapper">
+         <h1>Enter the name of the dish:</h1>
            <div class="flex">
             <form class="flex" id="submit">
                 <input type="text" id="search" placeholder="Search for meals or keywords" />
@@ -198,15 +82,31 @@ h1{
                 </button>
 				</form>
 				 </div>
-			</form>		
-		</div>
-				
+
+  <div class="gallery">
+  
+      <div class="item">
+	      <div>
+		  <a href="./img/big/01.jpg">
+		       <img class="front" src="./img/small/01.jpg" alt="">
+			   </a>
+		  </div>
+
+      </div>
+  </div>
+ </div>
+
+       
+ 
+  
 <div class="show_content" id="content1">
    </div>
    <!-- jQuery -->
 <script src="jquery-3.3.1.min.js"></script>
    <!-- Bootstrap -->
 <script src="bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="./js/lightbox-2.6.min.js"></script>
 
    
 </body>

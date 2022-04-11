@@ -132,6 +132,7 @@ div.logo {
 
 div.topmenu a:hover {
     color: #fff;
+    cursor: pointer;
 }
 
 div.topmenu {

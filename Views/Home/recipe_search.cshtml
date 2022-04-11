@@ -2,39 +2,68 @@
 <html>
   <head>
 		<title> Feeling hungry </title>
-        <base href="@ViewData["base_path"]" target="_self">
+         <partial name="~/Views/Home/basepath_tag1.cshtml" />
 		<!--<link rel="shortcut icon" type="imnege/x-icon" href="avatar.jpg">-->
 		<link rel="stylesheet" type="text/css" href="./css/col.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="./js/auto_complete1.js"></script>
 		<meta charset="utf-8">
+
+
+
+        <script>
+            function add_to_log1(msg1)
+            {
+                $("#log_txt1").html(msg1+"\r\n"+$("#log_txt1").html());
+            }
+            function get_code_obj_by_name(name_of_code_obj)
+            {
+                if (name_of_code_obj=="auto_complete_obj1")
+                {
+                    return auto_complete_obj1;
+                }
+            }
+function auto_complete_selected1(id)
+{
+
+}
+
+function auto_complete_created1_12121()
+{
+    alert("auto_complete_created13242342");
+
+}
+            var auto_complete_obj1=null;
+        $(document).ready(function (e1) {
+            //alert("ok12");
+            auto_complete_obj1=new auto_complete1();
+            auto_complete_obj1.name_auto_complete_obj1="auto_complete_obj1";
+            auto_complete_obj1.call_back1=auto_complete_created1_12121;
+            //alert("auto_complete_obj1.call_back1");
+            //alert("ok1");
+            auto_complete_obj1.input_id="search";
+            auto_complete_obj1.init();
+            $("#open_pop_up").click(function (e1)
+            {
+                alert("logout");
+                $.post("./service/user_logout", {}, function (msg1) {
+                alert("msg1=" + msg1);
+
+               
+                });
+
+               
+            });
+        });
+          </script>
   </head>
 <body>
 
 
 <!--<Шапка сайта>-->
-<header class="header">
-    <div class="container1">
-	    <div class="header_inner">
-			
-		<div class="logo">FoodGood</div>
-			<nav>
-			<div class="topmenu">
-			  <aside>
-				<a href="https://localhost:7090/Home/Index_users"">Home</a>
-				<a href="./home/user_Account" >My account</a>
-				<a href="#">Gallery</a>
-				<a href="./home/recipe_search"class = "advanced">Advanced Search</a>
-				<a href="https://localhost:7090/Home/Index" id="open_pop_up">LogOut, <b>@ViewData["user_name_login1"]</b></a>
-				
-			  </aside>
-			</div>
-			</nav>
-		</div>
-	</div>
-	
-</header>
+<partial name="~/Views/Home/header_view2.cshtml" />
 <div class="dws-button">
 			<label class="tab active" title="Вкладка 1">Search by name</label>
 			<label class="tab" title="Вкладка 2">Meal Finder</label>
@@ -42,7 +71,7 @@
 			<!---->
 		  </div>
 <div class="dws-form">
-   <div class="container active" id = "tab-form">
+   <div class="container1 active" id = "tab-form">
          <h1>Enter the name of the dish:</h1>
            <div class="flex">
             <form class="flex" id="submit">
@@ -67,9 +96,11 @@
         <div id="result-heading"></div>
         <div id="meals" class="meals"></div>
         <div id="single-meal"></div>
+        <textarea id='log_txt1' style='z-index:300;position:absolute;top:10px;left:900px;width:500px;height:500px'></textarea>
+
     </div>
 	
-	<div class="container" id = "tab-form">
+	<div class="container1" id = "tab-form">
          <h1>Meal Finder</h1>
            <div class="flex">
             <form class="flex" id="submit">
@@ -86,7 +117,7 @@
         <div id="single-meal"></div>
     </div>
 	
-	<div class="container" id = "tab-form">
+	<div class="container1" id = "tab-form">
          <h1>Good Day</h1>
            <div class="flex">
             <form class="flex" id="submit">
@@ -107,9 +138,10 @@
 
     
 	<script src="./js/Js.js"></script>
-    <script src="./js/jquery.min.js"></script>
+    <!--<script src="./js/jquery.min.js"></script>-->
     
-</body>
+
+    </body>
 
 
 </html>

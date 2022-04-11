@@ -95,18 +95,26 @@
 
             return 1;
         }
-        public int execute_qry(string qry, Dictionary<string, object> prms,string name_of_transaction=null)
+        public int execute_qry(string qry, Dictionary<string, object> prms,out object error,string name_of_transaction=null)
         {
-            MySqlConnector.MySqlCommand cmd = new MySqlConnector.MySqlCommand();
-            cmd.CommandText = qry;
-
-            add_prms_to_command(cmd, prms);
-            cmd.Connection = conn_obj1;
-            if (name_of_transaction != null)
+            error = "";
+            try
             {
-                cmd.Transaction = transactions_dict_obj1[name_of_transaction];
+                MySqlConnector.MySqlCommand cmd = new MySqlConnector.MySqlCommand();
+                cmd.CommandText = qry;
+
+                add_prms_to_command(cmd, prms);
+                cmd.Connection = conn_obj1;
+                if (name_of_transaction != null)
+                {
+                    cmd.Transaction = transactions_dict_obj1[name_of_transaction];
+                }
+                cmd.ExecuteNonQuery();
             }
-            cmd.ExecuteNonQuery();
+            catch (Exception ex)
+            {
+                error = ex.Message.ToString();
+            }
             return 1;
         }
 

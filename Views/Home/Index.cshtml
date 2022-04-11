@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <base href="@ViewData["base_path"]" target="_self">
+    <partial name="~/Views/Home/basepath_tag1.cshtml" />
 
     <link rel="apple-touch-icon" sizes="57x57" href="image/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="image/apple-icon-60x60.png">
@@ -40,34 +40,44 @@
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <!--<script src="./js/JaScript.js"></script>-->
     <script>
+        //var auto_complete_obj1=new auto_compelete1();
 
         function getCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-    }
-    return null;
+               var nameEQ = name + "=";
+               var ca = document.cookie.split(';');
+               for(var i=0;i < ca.length;i++) {
+                     var c = ca[i];
+                     while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                         if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+               return null;
 }
 
-function eraseCookie(name) {
+
+
+function auto_complete_created3()
+{
+
+}
+
+
+         /*function eraseCookie(name) {
     //document.cookie = name + '=; Max-Age=0';
 
-    document.cookie = name+"=; Max-Age=0; path=/; domain=" + location.hostname;
-}
+            document.cookie = name+"=; Max-Age=0; path=/; domain=" + location.hostname;
+}*/
 
 
-        $(document).ready(function (e1) {
+            $(document).ready(function (e1) {
 
-            $.post("./service/user_register2", { username: $("#login_form").find("#userName").val(),password:$("#login_form").find("#password").val() }, function (msg1) {
-                alert("msg2=" + msg1);
-                //window.location.href="./Home/index_users";
-                
-                //return false;
-            });
+            $.post("./service/search_results1", { autocomp_val: "h" }, function (msg1) {
+            alert("msg1=" + msg1);
+            //window.location.href="./Home/index";
 
+            //return false;
+        });
+
+                return;
             /*alert("ready!");
             debugger;
             $.post("./service/getdata", { op_code1: "get_data1" }, function (msg1) {
@@ -75,22 +85,7 @@ function eraseCookie(name) {
             });;
             */
            //eraseCookie("user_name_login");
-           alert(getCookie("user_name_login2"));
-            $("#login_btn1").click(function (e1)
-            {
-
-
-
-                alert("login");
-                $.post("./service/user_login", { username: $("#login_form").find("#userName").val(),password:$("#login_form").find("#password").val() }, function (msg1) {
-                alert("msg1=" + msg1);
-                window.location.href="./Home/index_users";
-                
-                //return false;
-            });
-
-                //alert($("#login_form").find("#userName").val());
-            });
+           
         });
 
     </script>
@@ -98,44 +93,21 @@ function eraseCookie(name) {
 
 <body translate="no">
 
+    
 
 
-    <!--<div class="wrapper"></div>-->
+     @if (ViewData["user_name_login1"]==null)
+	  {
+		<partial name="~/Views/Home/header_view1.cshtml" />
+
+	}
+	else
+	{
+				<partial name="~/Views/Home/header_view2.cshtml" />
+
+	}
     <!--<Шапка сайта>-->
-    <header class="header">
-        <div class="container">
-            <div class="header_inner">
 
-                <div class="logo">FoodGood</div>
-                <nav>
-                    <div class="topmenu">
-                        <aside>
-
-                            <!--   <?php
-    if (isset($_COOKIE['user']) == ''):
-    ?>-->
-
-                            <a href="https://localhost:7090/Home/Index">Home</a>
-                            <a href="#" class="btn" data-path="form-popup">My accoun</a>
-                            <a href="#" class="btn" data-path="form-popup">Gallery</a>
-                            <a href="#" class="btn" data-path="form-popup">Advanced Search</a>
-                            <a href="#" class="btn" data-path="me-popup" id="registration">Sign Up</a>
-                            <a href="#" class="btn" data-path="form-popup">Log In</a>
-
-                            <!--<?php else: ?>
-
-                            <a href="http://localhost/myfood/index.php" class="home">Home</a>
-                            <a href="file:///C:/Server/data/htdocs/myFood/MyAccount.html#">My accoun</a>
-                            <a href="#">Gallery</a>
-                            <a href="#">Advanced Search</a>
-                            <a href="http://localhost/myfood/master/exit.php" id="open_pop_up">LogOut , <b><?=$_COOKIE['user']?></b></a>
-    <?php endif;?>-->
-                        </aside>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
 
 
 
@@ -180,7 +152,7 @@ function eraseCookie(name) {
 
                                 <div class="login-box modal--2" data-target="me-popup">
                                     <h5>Registration</h5>
-                                    <form action="./Service/user_register" method="POST" class="log__form">
+                                    <form id="Register__form" action="./Service/user_register" method="POST" class="log__form">
                                         <fieldset class="inputs">
 
                                             <div class="user-box">
@@ -201,9 +173,8 @@ function eraseCookie(name) {
                                            
                                         </fieldset>
                                         <fieldset class="actions">
-										
-                                         
-											<button type="submit" class="neon-btn" onclick="batReg">Registration</button>
+											<button id="Reg_btn1" type="submit" class="neon-btn" onclick="return false;"  >Registration</button>
+                                             
                                              <h6 id="h61">OR</h6><a href="#" id="Reg__form" class="btn" data-path="form-popup">Log In</a>
                                         </fieldset>
                                     </form>
@@ -265,6 +236,7 @@ function eraseCookie(name) {
                             <!-- end история поиска -->
 
                             <script src="js/JaScript.js"></script>
+                            <script src="js/js.js"></script>
 </body>
 
 </html>

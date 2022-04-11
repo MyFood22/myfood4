@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <base href="@ViewData["base_path"]" target="_self">
+     <partial name="~/Views/Home/basepath_tag1.cshtml" />
     <link rel="apple-touch-icon" sizes="57x57" href="image/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="image/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="image/apple-icon-72x72.png">
@@ -56,6 +56,8 @@
             });
             */
 
+           return;
+
             $("#open_pop_up").click(function (e1)
             {
                 alert("logout");
@@ -65,7 +67,8 @@
 
                
             });
-
+            alert($("#basepath1").attr("href"));
+            window.location.href=$("#basepath1").attr("href");
                 //alert($("#login_form").find("#userName").val());
             });
         });
@@ -80,32 +83,9 @@
 
     <!--<div class="wrapper"></div>-->
     <!--<Шапка сайта>-->
-    <header class="header">
-        <div class="container">
-            <div class="header_inner">
 
-                <div class="logo">FoodGood</div>
-                <nav>
-                    <div class="topmenu">
-                        <aside>
-
-  
-
-
-
-                            <a href="https://localhost:7090/Home/Index_users" class="home">Home</a>
-                            <a href="./home/user_Account">My accoun</a>
-                            <a href="#">Gallery</a>
-                            <a href="./home/recipe_search">Advanced Search</a>
-                            <a onclieck="return false;" id="open_pop_up">LogOut, <b>@ViewData["user_name_login1"]</b></a>
-
-                        </aside>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
-
+    <partial name="~/Views/Home/header_view2.cshtml" />
+    
 
 
     <div class="container">
