@@ -11,7 +11,7 @@ namespace myfood4.Controllers
         }
 
 
-        //string user_name1 = Request.Cookies["user_name_login2"];
+       
 
         public IActionResult user_show1()
         {
@@ -23,22 +23,12 @@ namespace myfood4.Controllers
         {
 
             CookieOptions opt1 = new CookieOptions();
-            //Microsoft.AspNetCore.Http.CookieBuilder cook_bld1 = new Microsoft.AspNetCore.Http.CookieBuilder();
+            
             opt1.Expires = DateTime.Now.AddDays(-1);
             Response.Cookies.Append("user_name_login2", "", opt1);
 
 
-            /*Response.Cookies.Delete("user_name_login", new CookieOptions()
-            {
-                Expires = DateTime.Now.AddDays(3),
-                Path = "/",
-                Domain="localhost",
-                MaxAge=new TimeSpan(0)
-            }); */
-
-
-            //Response.Cookies.Delete("user_name_login");
-            //View().ViewData.
+           
 
 
             View().ViewData["result1"] = "logout_ok";
@@ -48,7 +38,7 @@ namespace myfood4.Controllers
         public IActionResult user_register2()
         {
             return Content("2342342");
-            //return  Json(new { foo = "bar", baz = "Blech" });
+            
         }
 
         public IActionResult user_login()
@@ -87,9 +77,7 @@ namespace myfood4.Controllers
                 
 
 
-               // Response.Cookies. = DateTime.Now.AddDays(3);
-
-                //login_qry ok
+               
             }
             else
             {
@@ -113,19 +101,7 @@ namespace myfood4.Controllers
             System.Data.DataSet ds1=new System.Data.DataSet();
 
             conn1.load_table_by_qry("s", prms1, ds1, "users");
-                /*MySqlConnector.MySqlConnection conn2= new MySqlConnector.MySqlConnection();
-            conn2.ConnectionString = "server=127.0.0.1;CHARSET=utf8;uid=root;database=my_work";
-            //conn1.ConnectionString = "server=127.0.0.1;uid=root;useUnicode=true;database=my_work";
-
-
-            conn2.Open();
-            MySqlConnector.MySqlDataAdapter data_adapter = new MySqlConnector.MySqlDataAdapter();
-            data_adapter.SelectCommand = command
-            data_adapter.SelectCommand.Connection = conn
-            data_adapter.Fill(ds1, name_of_table)
-
-            conn2.Close();*/
-
+                
 
 
 
@@ -140,19 +116,42 @@ namespace myfood4.Controllers
         {
             CDbconnection conn1 = new CDbconnection();
             conn1.open_connection();
+            
             string autocomp_val=Request.Form["autocomp_val"].ToString();
             Dictionary<string, object> prms1 = new Dictionary<string, object>();
-            prms1["@autocomp_val"] = autocomp_val;
+            prms1["@autocomp_val"] = "%"+autocomp_val+"%";
 
-            string qry = "select * from all_recipes where title like '%@autocomp_val%'";
+            string qry = "select * from all_recipes where title like @autocomp_val";
 
             System.Data.DataSet ds1 = new System.Data.DataSet();
 
             conn1.load_table_by_qry(qry, prms1, ds1, "recipes");
+            int c1 = ds1.Tables["recipes"].Rows.Count;
+            string json_str = "";
+            int ind1;
+            for (ind1=0;ind1<c1;ind1++)
+            {
+                if (json_str!="")
+                {
+                    json_str += ",";
+                }
+                json_str+=build_json_node(ds1.Tables["recipes"].Rows[ind1]["id"].ToString(), ds1.Tables["recipes"].Rows[ind1]["title"].ToString(), "", "");
+            }
+            json_str="{\"results_arr\": [" + json_str + "]}";
 
-            conn1.close_connection();
-
+                          conn1.close_connection();
+            return Content(json_str);
             return View();
+        }
+
+        public string build_json_node(string id,string name,string desc,string img)
+        {
+            string json_node_str1 = "{\"id\": " + id + ",";
+            json_node_str1 += "\"name\": \"" + name + "\",";
+            json_node_str1 += "\"description\": \"" + desc + "\",";
+            json_node_str1 += "\"img\": \"" + img + "\"}";
+            return json_node_str1;
+    
         }
 
 
@@ -167,9 +166,9 @@ namespace myfood4.Controllers
             CDbconnection conn1 = new CDbconnection();
             conn1.open_connection();
 
-            //conn1.begin_transaction("register_trans1");
+           
             object last_err = "";
-            //conn1.execute_qry("lock TABLE userw WRITE", null, out last_err, "register_trans1");
+           
 
 
             Dictionary<string, object> prms1 = new Dictionary<string, object>();
@@ -178,21 +177,15 @@ namespace myfood4.Controllers
             prms1["@password1"] = password1;
 
 
-            //conn1.load_table_by_qry("INSERT INTO users(username,email,password) VALUES (@username1, @emailBox1, @password1)", prms1, out last_err);
+            
 
 
             conn1.execute_qry("INSERT INTO users(username,email,password) VALUES (@username1, @emailBox1, @password1)", prms1,out last_err);
 
 
-            //conn1.execute_qry("unlock TABLES", null, out last_err, "register_trans1");
+            
             conn1.close_connection();
-            /*MySqlCommand command = new MySqlCommand("INSERT INTO `users` ( `login`,`email`,`password`) VALUES (@login, @email, @password)");
-            command.Parameters.Add("@login", MySqlDbType.VarChar).Value = userName.Text;
-            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = emailBox.Text;
-            command.Parameters.Add("@password", MySqlDbType.VarChar).Value = password.Text;*/
-
-
-            //"Duplicate entry 'popka' for key 'username_UNIQUE'"
+           
             if (last_err.ToString().Contains("Duplicate entry") && last_err.ToString().Contains("for key 'username_UNIQUE'"))
             {
                 return Content("{error:'username_exist')");
@@ -200,14 +193,7 @@ namespace myfood4.Controllers
                 return Content("register_success");
             
         }
-        /*  private void butReg(object sender, EventArgs e)
-          {
-              ServiceController db = new ServiceController();
-              MySqlCommand command = new MySqlCommand("INSERT INTO `users` ( `login`,`email`,`password`) VALUES (@login, @email, @password)", db.getConnection());
-              command.Parameters.Add("@login", MySqlDbType.VarChar).Value = userName.Text;
-              command.Parameters.Add("@email", MySqlDbType.VarChar).Value = emailBox.Text;
-              command.Parameters.Add("@password", MySqlDbType.VarChar).Value = password.Text;
-          }*/
+        
 
 
     }

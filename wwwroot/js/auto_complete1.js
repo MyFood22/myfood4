@@ -2,6 +2,7 @@
 
 function auto_complete1() {
     alert("new");
+    this.class_type1 = "auto_complete1";
     this.input_id = "";
     this.text_of_input = "";
     this.last_over_tr_id = null;
@@ -14,14 +15,16 @@ function auto_complete1() {
     this.tr_click_func = auto_complete1__tr_click_func;
     this.input_keyup_func = auto_complete1__input_keyup_func;
     this.change_selected_tr = auto_complete1__change_selected_tr;
-
+    this.mouseover_func = auto_complete1__mouseover_func;
     this.update_input_text_val = auto_complete1__update_input_text_val;
     this.call_back1 = null;
 
     function auto_complete1__init() {
         $("#" + this.input_id).attr("name_auto_complete_obj1", this.name_auto_complete_obj1);
-        $("#" + this.input_id).click(auto_complete1__input_click_func);
-        $("#" + this.input_id).keyup(auto_complete1__input_keyup_func);
+        var this1 = this;
+        $("#" + this.input_id).keyup(function (e1) { this1.input_keyup_func(e1, this1); });
+        $("#" + this.input_id).click(function (e1) { this1.input_click_func(e1, this1); });
+        //$("#" + this.input_id).keyup(auto_complete1__input_keyup_func);
     }
 
     function auto_complete1__input_click_func() {
@@ -29,14 +32,15 @@ function auto_complete1() {
     }
 
 
-    function auto_complete1__input_keyup_func(e1) {
+    function auto_complete1__input_keyup_func(e1/*,this1*/) {
+        var this1 = this;
 
         //alert(e1.which);
-
+        //alert("this1.");
         
         //alert($(e1.target).attr("placeholder"));
         //$(e1.target)=this
-        var this1 = null;
+        //var this1 = null;
         //alert($(e1.target).attr("name_auto_complete_obj1"));
 
         //this1 = 2;
@@ -45,7 +49,9 @@ function auto_complete1() {
         //alert("str_js1=[" + str_js1 + "]");
         //eval(str_js1);
 
-        this1 = get_code_obj_by_name($(e1.target).attr("name_auto_complete_obj1"));
+        //this1 = get_code_obj_by_name($(e1.target).attr("name_auto_complete_obj1"));
+
+        var key_char1=$("#" + this1.input_id).val();
         if ($("#" + this1.input_id + "_autocomp_options").length > 0) {
             if (e1.which == 38) {//up
                 this1.change_selected_tr("up1");
@@ -68,11 +74,21 @@ function auto_complete1() {
         this1.json_obj1 = null;
         try {
             $.ajaxSetup({ async: false });
-            $.post("/home/search_results1", null, function (msg1) {
+            $.post("./service/search_results1", { autocomp_val: key_char1 }, function (msg1) {
+                //alert("msg1=" + msg1);
+
+                this1.json_obj1 = $.parseJSON(msg1);
+                //window.location.href="./Home/index";
+
+                //return false;
+            });
+
+
+            /*$.post("/home/search_results1", null, function (msg1) {
                 //alert(msg1);
 
                 this1.json_obj1 = $.parseJSON(msg1);
-            });
+            });*/
 
             //alert(json_obj1["results_arr"][0]["id"]);
             var top1 = $("#" + this1.input_id).offset().top + parseInt($("#" + this1.input_id).outerHeight());
@@ -102,14 +118,17 @@ function auto_complete1() {
             $("#" + this1.input_id + "_autocomp_options").unbind('click');
             $(document.body).append($(html_str));
             
-            $("#" + this1.input_id + "_autocomp_options").click(auto_complete1__tr_click_func);
+            $("#" + this1.input_id + "_autocomp_options").click(function (e1) { this1.tr_click_func(e1, this1) });
 
-            $("#" + this1.input_id + "_autocomp_options").mouseover(auto_complete1__mouseover_func);
+            //$("#" + this1.input_id + "_autocomp_options").mouseover(auto_complete1__mouseover_func);
+            //var this2 = this1;
+            $("#" + this1.input_id + "_autocomp_options").mouseover(function (e1) { this1.mouseover_func(e1, this1) });
             //$("#" + this.input_id).click(auto_complete1__input_click_func);
             $("#log_txt1").html("ok\r\n" + $("#log_txt1").html());
 
             this1.text_of_input = $("#" + this1.input_id).val();
             $("#" + this1.input_id).attr("autocomplete", "off");
+            this1.current_ind1 = -1;
             //alert(this1.call_back1);
             this1.call_back1();
             //----
@@ -120,9 +139,8 @@ function auto_complete1() {
         }
     }
 
-    function auto_complete1__tr_click_func(e1) {
+    function auto_complete1__tr_click_func(e1,this1) {
         add_to_log1("auto_complete1__tr_click_func");
-
         var obj1 = $(e1.target);
         var c1 = 0;
         while (obj1.attr("type1") != "tr_autocomp_opt1" && c1 < 4) {
@@ -143,7 +161,7 @@ function auto_complete1() {
         //alert("str_js1=[" + str_js1 + "]");
 
 
-        this1 = get_code_obj_by_name(tbl_obj1.attr("name_auto_complete_obj1"));
+        //this1 = get_code_obj_by_name(tbl_obj1.attr("name_auto_complete_obj1"));
 
 
         $("#" + this1.input_id + "_autocomp_options").remove();
@@ -196,7 +214,7 @@ function auto_complete1() {
         }
 
     }
-    function auto_complete1__mouseover_func(e1) {
+    function auto_complete1__mouseover_func(e1,this1) {
         /*if ($(e1.target).attr("type1") != "tr_autocomp_opt1") {
             return;
         }*/
@@ -226,7 +244,7 @@ function auto_complete1() {
         //alert("str_js1=[" + str_js1 + "]");
 
 
-        this1 = get_code_obj_by_name(tbl_obj1.attr("name_auto_complete_obj1"));
+        //this1 = get_code_obj_by_name(tbl_obj1.attr("name_auto_complete_obj1"));
 
 
 
@@ -238,6 +256,9 @@ function auto_complete1() {
         //alert($(obj1).html());
         add_to_log1(obj1.attr("id") + "," + obj1.attr("type1"));
         if (obj1.attr("type1") == "tr_autocomp_opt1") {
+            if (this1.last_over_tr_id == obj1.attr("id")) {
+                return;
+            }
             obj1.css("background-Color", "#ffffff");
             if (this1.last_over_tr_id != null) {
                 $("#" + this1.last_over_tr_id).css("background-Color", "#ffccff");

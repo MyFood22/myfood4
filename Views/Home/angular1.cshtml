@@ -1,0 +1,54 @@
+﻿<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script>
+             var app = null;
+            function body_on_load()
+            {
+                /*app = angular.module('myApp', []);
+                app.controller('myCtrl', function($scope) {
+                  $scope.firstName= "John";
+                  $scope.lastName= "Doe";
+                });*/
+            }
+        </script>
+
+    </head>
+    <body onload="body_on_load()">
+
+        <!--<div ng-app="myApp" ng-controller="myCtrl">
+
+        First Name: <input type="text" ng-model="firstName"><br>
+        Last Name: <input type="text" ng-model="lastName"><br>
+        phone: <input type="text" ng-model="phone1"><br>
+        <br>
+        Full Name: {{firstName + " " + lastName+ "phone is" +phone1 }}
+
+        </div>-->
+
+        <div ng-app="myApp2" ng-controller="myCtrl2">
+
+        First Name: <input type="text" ng-model="firstName1"><br>
+        <br>
+        Full Name: {{firstName1 }}
+
+        </div>
+
+
+        <script>
+            /*app = angular.module('myApp', []);
+                app.controller('myCtrl', function($scope) {
+                  $scope.firstName= "slave";
+                  $scope.lastName= "Doe";
+                  $scope.phone1= "123456";
+                });*/
+
+                app2 = angular.module('myApp2', []);
+                app2.controller('myCtrl2', function($scope) {
+                  $scope.firstName1= "slave1";
+                });
+         </script>
+    </body>
+
+
+</html>
