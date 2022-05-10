@@ -6,32 +6,38 @@ using System.Web;
 
 namespace myfood4.Controllers
 {
+    // Request -> Routing (Home) -> manupluation on data -> return view
     public class HomeController : Controller
     {
+        // Logger 
         private readonly ILogger<HomeController> _logger;
+        public int ViewInit { get; private set; } = 0;
 
-        int view_init1 = 0;
-        
+        public HomeController(ILogger<HomeController> logger)
+        {
+            _logger = logger;
+        }
+
         public override ViewResult View()
         {
-            if (view_init1 == 0)
+            
+            if (ViewInit == 0)
             {
-                view_init1 = 1;
-                int d1 = 1;
+                ViewInit = 1;
                 if (Request != null)
                 {
-                    string user_name1 = Request.Cookies["user_name_login2"];
-                    View().ViewData["user_name_login1"] = user_name1;
+                    // If there is cookie in the browser
+                    string userName1 = Request.Cookies["user_name_login2"];
+
+                    View().ViewData["user_name_login1"] = userName1;
                 }
 
             }
-
             return base.View();
         }
 
         public void OnActionExectioning(ActionExecutingContext filterContext)
         {
-            //this.vi
             if (Request != null)
             {
                 string user_name1 = Request.Cookies["user_name_login2"];
@@ -48,12 +54,7 @@ namespace myfood4.Controllers
             }
         }
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-
-            
-            _logger = logger;
-        }
+        
 
         public IActionResult angular1()
         {

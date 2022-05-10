@@ -6,11 +6,19 @@
         Dictionary<string, MySqlConnector.MySqlTransaction> transactions_dict_obj1 = new Dictionary<string, MySqlConnector.MySqlTransaction>();
 
 
+        /*  Hard code Connection string good for demos not valid soluation
+         *  Connection string need to be for now in appsetting.Development.json
+         *  Producation senerio will be on key-valut on cloud
+         */
         public CDbconnection()
         {
             conn_obj1 = new MySqlConnector.MySqlConnection();
             conn_obj1.ConnectionString = "server=127.0.0.1;CHARSET=utf8;uid=root;database=my_work";
         }
+
+        /*  Warning : This code fail when we cant found our transaction !
+         *  Try catch block will solve this and throw this to parent (root) 
+         */
         public MySqlConnector.MySqlTransaction begin_transaction(string name_of_transaction)
         {
             transactions_dict_obj1[name_of_transaction] = conn_obj1.BeginTransaction();

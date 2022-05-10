@@ -201,6 +201,7 @@ function getMealByID(mealID) {
 };
 
 //Event listensiers
+// Exeption throw in browser (Running time)
 submit.addEventListener('submit', searchMeal);
 
 if (random != null) {

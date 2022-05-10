@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MySql.Data.MySqlClient;
+//using MySql.Data.MySqlClient;
 
 namespace myfood4.Controllers
 {
@@ -41,6 +41,10 @@ namespace myfood4.Controllers
             
         }
 
+        /*  parmate to sql -> defense for sql injection 
+         *  Hahsing password + salting 
+         *  userame = admin , password = 12345678
+         */
         public IActionResult user_login()
         {
             string userName1 = Request.Form["userName"].ToString();
@@ -193,10 +197,5 @@ namespace myfood4.Controllers
                 return Content("register_success");
             
         }
-        
-
-
     }
-
-
 }
